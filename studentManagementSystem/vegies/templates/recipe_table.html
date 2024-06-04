@@ -1,0 +1,41 @@
+{% extends "base1.html" %}
+{% block start%}
+
+
+    
+{% comment %} search the recipe functionality............... {% endcomment %}
+
+<div class="searchFood">
+    <form>
+       <input type="text" name="search" required placeholder="Enter food name" id="food"/>
+       <input type="submit" value="Search 🔍" id="search"/>
+    </form>
+</div>
+<a href="/recipes/" class="butn3">Add</a>
+{% comment %} ------------------------------------------------------------- {% endcomment %}
+
+    <table>
+        <caption style="font-size:40px;padding:50px;font-weight:bold;color:green;">👩‍🍳👨‍🍳Recipe List👩‍🍳👨‍🍳</caption>
+        <tr>
+            <th>S.No</th>
+            <th>Recipe name</th>
+            <th>Recipe Description</th>
+            <th>Recipe Image</th>
+            <th>Action</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+           <td>{{forloop.counter}}</td>
+           <td>{{x.recipe_name}}</td>
+           <td>{{x.recipe_description}}</td>
+           <td><img src="/media/{{x.recipe_image}}" id="image"></td>
+           <td style="width:150px;">
+               <a href="/update_Recipe/{{x.id}}/" class="butn2">Update</a> 
+               <a href="/delete_Recipe/{{x.id}}/" class="butn1">Delete</a>
+           </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

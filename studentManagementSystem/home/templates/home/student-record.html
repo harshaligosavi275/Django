@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block start%}
+
+
+{{student}}
+<h4 style="color:red;"> **We will display that data in table format</h4>
+
+<h1 style="text-align:center;">Student Records</h1>
+<table>
+    <tr>
+        <th>Sr.No</th>
+        <th>name</th>
+        <th>age</th>
+        <th>CanVote</th>
+    <tr>
+    {% for studentReco in student%}
+    <tr {% if studentReco.age <= 18 %} style="background-color:red;" {%endif%}>
+        <td>{{forloop.counter}}</td>
+        <td>{{studentReco.name}}</td>
+        <td>{{studentReco.age}}</td>
+        <td>
+            {% if studentReco.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% comment %} if you want to show limited data {% endcomment %}
+ <p>{{text | truncatechars:200}}</p>
+ 
+ {% comment %} ----------------------------------------------------------------------- {% endcomment %}
+
+ <p>
+ {% if "potato" in vegitables %} 
+        <h2 id="yes">Yes it is present</h2>
+    {% else %}
+        <h2 id="no"> No it is not present</h2>
+ {% endif %}
+ </p>
+
+ {% comment %} if we want to print first character {% endcomment %}
+ <p>{{vegitables.firstof}}</p>
+
+ <a href="/index/">view index page</a> | 
+ <a href = "/vote/"> view  voting </a>
+
+ {% endblock%}
