@@ -22,9 +22,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+
+handler404 = 'home.views.handler404'
 urlpatterns = [
     
-    path('',home),
+    path('home/',home),
     path('success-page/',success_page,name="success_page"),
     path('voting/', voting, name="voting"),
     path('records/',studentRecord , name="studentRecord"),
@@ -34,12 +36,22 @@ urlpatterns = [
     path('stu/', viewStudent, name="viewStudent"),
     path('vote/', viewVoting, name = "viewVoting"),
     
+    # ---------------practice--------------------------------
+    # path('', main, name="main"),
+    path('display/',displayData, name="displayData"),
+    path('details/<int:id>', detailsMore, name="displayMore"),
+    # -----------------------------------------------------
+    
+   
     # --------------------------------
+    path('',register_page, name="register_page"),
     path('recipes/', recipes, name="recipes"),
     path('show_recipe/',show_recipe, name="show_recipe"),
     path('delete_Recipe/<id>/', delete_Recipe, name="delete_Recipe"),
     path('update_Recipe/<id>/', update_Recipe, name="update_Recipe"),
-    
+    path('login/', login_page, name="login_page"),
+    path('register/', register_page, name="register_page"),
+    path('logout/',log_out, name="log_out"),
     path('admin/', admin.site.urls),
 ]
 
@@ -48,3 +60,5 @@ if settings.DEBUG:
                           document_root = settings.MEDIA_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()
+
+

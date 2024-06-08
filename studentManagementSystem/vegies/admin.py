@@ -5,5 +5,9 @@ from django.contrib import admin
 from .models import *
 
 
-admin.site.register(Recipe)
+class MemberAdmin(admin.ModelAdmin):
+    list_display = ["recipe_name","recipe_description","recipe_image"]
+    
+    
+admin.site.register(Recipe,MemberAdmin)
 

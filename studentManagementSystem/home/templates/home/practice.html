@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block start %}
+
+{% for x in data%}
+<p>My name is {{x.name}}. I am {{x.age}} years old and my email address is {{x.email}}</p>
+{% endfor %}
+
+<ul>
+    {% for x in data%}
+    <li><a href="/details/{{x.id}}">{{x.name}}-----{{x.email}}-----{{x.age}}-------{{x.address}}</a></li>
+    {%endfor%}
+</ul>
+<a href="/">back to main</a>
+{% endblock %}

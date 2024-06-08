@@ -15,7 +15,7 @@
 {% comment %} ------------------------------------------------------------- {% endcomment %}
 
     <table>
-        <caption style="font-size:40px;padding:50px;font-weight:bold;color:green;">👩‍🍳👨‍🍳Recipe List👩‍🍳👨‍🍳</caption>
+        <div style="font-size:40px;font-weight:bold;color:green;position:relative; top:190px;left:550px;">👩‍🍳👨‍🍳Recipe List👩‍🍳👨‍🍳</div>
         <tr>
             <th>S.No</th>
             <th>Recipe name</th>
@@ -29,7 +29,7 @@
            <td>{{x.recipe_name}}</td>
            <td>{{x.recipe_description}}</td>
            <td><img src="/media/{{x.recipe_image}}" id="image"></td>
-           <td style="width:150px;">
+           <td style="width:200px;">
                <a href="/update_Recipe/{{x.id}}/" class="butn2">Update</a> 
                <a href="/delete_Recipe/{{x.id}}/" class="butn1">Delete</a>
            </td>

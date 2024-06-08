@@ -1,0 +1,27 @@
+{% extends "base2.html"%}
+{% block start%}
+    <div id="form">
+        <span class="title">Login</span>
+       <form action="" method="POST">
+        <div class="alert alert-primary" role="alert" style="position:relative;top:20px;text-align:center;">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+          </div>
+        {% csrf_token %}
+         <div class="divs">
+              <label>Username:</label>
+              <input type="text" name="username" id="user" class="inp" required/>
+         </div>
+     
+         <div class="divs">
+              <label>Password:</label>
+              <input type="text" name="password" class="inp" required/>
+         </div>
+         <p class="instruction">if you don't have a account<a href="/register/"> Register</a></p>
+         <input type="submit" class="log" value="Login In">
+        
+     </form>
+    </div>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from home.models import *
 
 
 # Create your views here.
@@ -80,3 +81,22 @@ def viewStudent(request):
 
 def viewVoting(request):
     return render(request, "home/voting.html", context = {'page':' view voting'})
+
+
+def displayData(request):
+    stu = Student.objects.all().values()
+    # print(stu)
+    context = {"data":stu}
+    return render(request, "home/practice.html",context)
+
+
+def detailsMore(request,id):
+    stu = Student.objects.get(id=id)
+    context = {"detail":stu}
+    return render(request, "home/practice2.html",context)
+
+def main(request):
+    return render(request,"home/main.html")
+
+def handler404(request,exception):
+    return render(request,"home/404.html",status=404)

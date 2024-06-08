@@ -1,0 +1,35 @@
+{% extends "base2.html"%}
+{% block start%}
+    <div id="form1">
+        <span class="title">Register</span>
+      <form method="POST">
+          <div class="alert alert-primary" role="alert" style="position:relative;top:20px;text-align:center;">
+               {% for message in messages %}
+               {{message}}
+               {% endfor %}
+             </div>
+        {% csrf_token %}
+        <div class="divs">
+            <label>First name:</label>
+            <input type="text" name="first_name"  class="inp" required/>
+       </div>
+       <div class="divs">
+            <label>Last name:</label>
+             <input type="text" name="last_name"  class="inp" required/>
+       </div>
+         <div class="divs">
+              <label>Username:</label>
+              <input type="text" name="username"  class="inp" required/>
+         </div>
+     
+         <div class="divs">
+              <label>Password:</label>
+              <input type="text" name="password" class="inp" required/>
+         </div>
+         <p class="instruction">Already have a account<a href="/login/"> login</a></p>
+         <input type="submit" class="log" value="Register">
+        
+     </form>
+    </div>
+
+{% endblock %}
